@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+<div id="app" class="container">
+    <br><h1>TABLA DE MULTIPLICAR</h1>
+    <label for="">Digite la tabla de multiplicar a generar</label> <br><br>
+    <input type="number" v-model="numero"><br><br>
+    <button>Generar</button>
+    <div>
+        <br><h3>Tabla de multiplicar: {{numero}}</h3>
+        <ul>
+            <li v-for="data in 10">{{numero}} * {{data}} = {{numero * data}}</li>
+        </ul>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script>
+  const { createApp } = Vue
+
+  createApp(
+    {
+    data() {
+      return {
+        numero: 0
+       }
+    } 
+  }
+  ).mount('#app')
+</script>
+
+
+</body>
+</html>
