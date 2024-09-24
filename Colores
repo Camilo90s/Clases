@@ -1,0 +1,67 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<body class="body"></body>
+<link rel="stylesheet" href="tarea.css">
+
+<style>
+    .body{
+        background-color: #BBECE8;
+    }
+    .titulo {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding-top: 30px;
+        font-size: 60px;
+    }
+    .texto {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 40px
+    }
+    .caja {
+        margin-top: 20px;
+        border: 2px solid black;
+    }
+    .select{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        width: 596px;
+        font-size: 40px;
+    }
+    .inputuno{
+        font-size: 40px;
+    }
+    .inputdos{
+        font-size: 40px;
+        width: 456px;
+    }
+</style>
+<center><h1 class="titulo">Selector de colores</h1></center>
+
+<div id="app">
+    <div class="texto">
+        Alto : <input class="inputuno" type="number" v-model="alto"></input><br><br>
+        Ancho : <input class="inputdos" type="number" v-model="ancho"></input><br><br>
+        <select class="select" v-model="posicion">
+            <option value="0">Verde</option>
+            <option value="1">Rojo</option>
+            <option value="2">Amarillo</option>
+            <option value="3">Naranjado</option>
+        </select>
+    </div>
+      
+    <div :style="{backgroundColor: color[posicion], width: ancho + 'px', height: alto + 'px'}"class="caja">
+    </div>
+</div>
+
+<script>
+    const { createApp } = Vue
+
+    createApp({
+        data() {
+            return {
+                posicion: 0,
+                ancho: 592,
+                alto: 220,
+                color: ["green", "red", "yellow", "orange"]
+            }
+        }
+    }).mount('#app')
+</script>
